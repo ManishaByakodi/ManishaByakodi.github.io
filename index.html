@@ -1,12 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Manisha Byakodi | Product Manager</title>
 
-    <meta name="description" content="Manisha Byakodi — Product Manager building AI and B2B SaaS products that solve real customer problems.">
+    <meta name="description"
+          content="Manisha Byakodi — Product Manager focused on AI, B2B SaaS, enterprise products and customer-led product development.">
 
     <style>
 
@@ -25,740 +29,1387 @@
                          Roboto, Helvetica, Arial, sans-serif;
             color: #171717;
             background: #ffffff;
-            line-height: 1.6;
+            line-height: 1.65;
+        }
+
+        :root {
+            --accent: #5b5bd6;
+            --accent-light: #f3f3ff;
+            --accent-border: #d8d8ff;
+            --border: #e7e7e7;
+            --muted: #666666;
+            --soft: #f7f7f7;
         }
 
         a {
-            color: inherit;
             text-decoration: none;
+            color: inherit;
         }
 
         .container {
             width: 90%;
-            max-width: 1100px;
+            max-width: 1080px;
             margin: auto;
         }
 
-        /* NAVIGATION */
+
+        /* =========================
+           NAVIGATION
+        ========================= */
 
         nav {
             height: 76px;
+
             display: flex;
-            align-items: center;
             justify-content: space-between;
-            border-bottom: 1px solid #eeeeee;
+            align-items: center;
+
+            border-bottom: 1px solid var(--border);
         }
 
         .logo {
             font-size: 18px;
-            font-weight: 700;
+            font-weight: 750;
             letter-spacing: -0.3px;
         }
 
         .nav-links {
             display: flex;
-            gap: 30px;
+            gap: 27px;
+
             font-size: 14px;
-            color: #555555;
+            color: var(--muted);
         }
 
         .nav-links a:hover {
-            color: #111111;
+            color: var(--accent);
         }
 
-        /* HERO */
+
+        /* =========================
+           HERO
+        ========================= */
 
         .hero {
-            padding: 110px 0 100px;
-            max-width: 900px;
+            padding: 105px 0 85px;
+
+            max-width: 920px;
         }
 
         .eyebrow {
-            font-size: 13px;
-            font-weight: 700;
-            letter-spacing: 1.5px;
+            color: var(--accent);
+
+            font-size: 12px;
+            font-weight: 750;
+
+            letter-spacing: 1.6px;
             text-transform: uppercase;
-            color: #666666;
-            margin-bottom: 22px;
+
+            margin-bottom: 20px;
         }
 
         .hero h1 {
-            font-size: clamp(42px, 6vw, 70px);
-            line-height: 1.05;
-            letter-spacing: -3px;
-            max-width: 900px;
-            margin-bottom: 28px;
+            font-size: clamp(45px, 7vw, 76px);
+
+            line-height: 1.02;
+
+            letter-spacing: -4px;
+
+            margin-bottom: 25px;
         }
 
         .hero h1 span {
-            color: #555555;
+            color: var(--accent);
         }
 
-        .hero-text {
+        .hero-description {
+            max-width: 780px;
+
             font-size: 20px;
-            color: #5f5f5f;
-            max-width: 720px;
-            margin-bottom: 35px;
+
+            color: var(--muted);
+
+            margin-bottom: 32px;
         }
 
-        .buttons {
+        .hero-buttons {
             display: flex;
-            gap: 12px;
             flex-wrap: wrap;
+
+            gap: 12px;
         }
 
         .button {
             display: inline-block;
-            padding: 12px 20px;
+
+            padding: 11px 18px;
+
             border-radius: 7px;
-            font-size: 14px;
-            font-weight: 600;
-            border: 1px solid #171717;
+
+            font-size: 13px;
+            font-weight: 650;
+
+            border: 1px solid var(--border);
+
+            transition: 0.2s;
         }
 
         .button-primary {
-            background: #171717;
+            background: var(--accent);
+
             color: white;
+
+            border-color: var(--accent);
         }
 
-        .button-secondary {
-            background: white;
-            color: #171717;
+        .button-primary:hover {
+            opacity: 0.9;
         }
 
-        .button:hover {
-            opacity: 0.8;
+        .button-secondary:hover {
+            border-color: var(--accent);
+
+            color: var(--accent);
         }
 
-        /* SECTIONS */
 
-        section {
-            padding: 85px 0;
-            border-top: 1px solid #eeeeee;
+        /* =========================
+           PROOF
+        ========================= */
+
+        .proof {
+            padding: 0 0 80px;
         }
 
-        .section-label {
-            font-size: 12px;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            font-weight: 700;
-            color: #777777;
-            margin-bottom: 12px;
-        }
-
-        .section-title {
-            font-size: 34px;
-            letter-spacing: -1px;
-            margin-bottom: 40px;
-        }
-
-        /* IMPACT */
-
-        .impact-grid {
+        .proof-grid {
             display: grid;
+
             grid-template-columns: repeat(4, 1fr);
-            gap: 1px;
-            background: #dddddd;
-            border: 1px solid #dddddd;
+
+            gap: 14px;
         }
 
-        .impact-card {
-            background: white;
-            padding: 30px 24px;
+        .proof-card {
+            padding: 25px;
+
+            background: var(--accent-light);
+
+            border: 1px solid var(--accent-border);
+
+            border-radius: 10px;
         }
 
-        .impact-number {
-            font-size: 36px;
-            font-weight: 700;
+        .proof-number {
+            color: var(--accent);
+
+            font-size: 30px;
+
+            font-weight: 750;
+
             letter-spacing: -1px;
-            margin-bottom: 8px;
+
+            margin-bottom: 5px;
         }
 
-        .impact-title {
-            font-size: 14px;
-            font-weight: 600;
+        .proof-title {
+            font-size: 13px;
+
+            font-weight: 700;
+
             margin-bottom: 4px;
         }
 
-        .impact-description {
-            font-size: 13px;
-            color: #777777;
-        }
+        .proof-description {
+            color: var(--muted);
 
-        /* CASE STUDY */
-
-        .case-study-card {
-            border: 1px solid #dddddd;
-            border-radius: 12px;
-            padding: 42px;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-        }
-
-        .case-study-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 12px 35px rgba(0,0,0,0.06);
-        }
-
-        .case-number {
             font-size: 12px;
-            font-weight: 700;
-            color: #777777;
+        }
+
+
+        /* =========================
+           GENERAL SECTIONS
+        ========================= */
+
+        section {
+            padding: 80px 0;
+
+            border-top: 1px solid var(--border);
+        }
+
+        .section-label {
+            color: var(--accent);
+
+            font-size: 12px;
+
+            font-weight: 750;
+
             letter-spacing: 1.5px;
+
             text-transform: uppercase;
-            margin-bottom: 20px;
+
+            margin-bottom: 10px;
         }
 
-        .case-study-card h3 {
-            font-size: 30px;
-            line-height: 1.2;
-            letter-spacing: -1px;
-            max-width: 700px;
-            margin-bottom: 14px;
-        }
+        .section-title {
+            font-size: 36px;
 
-        .case-meta {
-            font-size: 13px;
-            color: #777777;
-            margin-bottom: 22px;
-        }
+            letter-spacing: -1.2px;
 
-        .case-description {
-            font-size: 17px;
-            color: #555555;
-            max-width: 760px;
-            margin-bottom: 28px;
-        }
-
-        .case-result {
-            display: inline-block;
-            padding: 10px 14px;
-            background: #f5f5f5;
-            border-radius: 6px;
-            font-size: 13px;
-            font-weight: 600;
-            margin-bottom: 28px;
-        }
-
-        /* THINKING */
-
-        .thinking-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 35px 60px;
-        }
-
-        .thinking-item h3 {
-            font-size: 18px;
-            margin-bottom: 7px;
-        }
-
-        .thinking-item p {
-            font-size: 15px;
-            color: #666666;
-        }
-
-        /* ABOUT */
-
-        .about-text {
-            max-width: 780px;
-            font-size: 18px;
-            color: #555555;
-        }
-
-        .about-text p {
             margin-bottom: 18px;
         }
 
-        /* FOOTER */
+        .section-intro {
+            max-width: 760px;
+
+            color: var(--muted);
+
+            font-size: 16px;
+
+            margin-bottom: 35px;
+        }
+
+
+        /* =========================
+           CASE STUDIES
+        ========================= */
+
+        .case-grid {
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 20px;
+        }
+
+        .case-card {
+            display: flex;
+
+            flex-direction: column;
+
+            justify-content: space-between;
+
+            min-height: 400px;
+
+            padding: 32px;
+
+            border: 1px solid var(--border);
+
+            border-radius: 12px;
+
+            transition: 0.2s;
+        }
+
+        .case-card:hover {
+            border-color: var(--accent-border);
+
+            transform: translateY(-2px);
+        }
+
+        .case-label {
+            color: var(--accent);
+
+            font-size: 11px;
+
+            font-weight: 750;
+
+            letter-spacing: 1.2px;
+
+            text-transform: uppercase;
+
+            margin-bottom: 15px;
+        }
+
+        .case-card h3 {
+            font-size: 25px;
+
+            line-height: 1.2;
+
+            letter-spacing: -0.6px;
+
+            margin-bottom: 15px;
+        }
+
+        .case-card p {
+            color: var(--muted);
+
+            font-size: 14px;
+
+            margin-bottom: 22px;
+        }
+
+        .case-tags {
+            display: flex;
+
+            flex-wrap: wrap;
+
+            gap: 7px;
+
+            margin-bottom: 25px;
+        }
+
+        .case-tag {
+            padding: 5px 9px;
+
+            background: var(--soft);
+
+            border-radius: 15px;
+
+            font-size: 11px;
+
+            color: #555555;
+        }
+
+        .case-link {
+            color: var(--accent);
+
+            font-size: 13px;
+
+            font-weight: 700;
+        }
+
+
+        /* =========================
+           EXPERIENCE
+        ========================= */
+
+        .experience-list {
+            max-width: 850px;
+        }
+
+        .experience-item {
+            display: grid;
+
+            grid-template-columns: 180px 1fr;
+
+            gap: 30px;
+
+            padding: 28px 0;
+
+            border-top: 1px solid var(--border);
+        }
+
+        .experience-item:first-child {
+            border-top: none;
+        }
+
+        .experience-date {
+            color: var(--muted);
+
+            font-size: 13px;
+        }
+
+        .experience-role {
+            font-size: 19px;
+
+            font-weight: 700;
+
+            margin-bottom: 2px;
+        }
+
+        .experience-company {
+            color: var(--accent);
+
+            font-size: 14px;
+
+            font-weight: 600;
+
+            margin-bottom: 12px;
+        }
+
+        .experience-description {
+            color: var(--muted);
+
+            font-size: 14px;
+
+            max-width: 680px;
+        }
+
+
+        /* =========================
+           CAPABILITIES
+        ========================= */
+
+        .capability-grid {
+            display: grid;
+
+            grid-template-columns: repeat(3, 1fr);
+
+            gap: 15px;
+        }
+
+        .capability {
+            padding: 22px;
+
+            border: 1px solid var(--border);
+
+            border-radius: 9px;
+        }
+
+        .capability h3 {
+            font-size: 15px;
+
+            margin-bottom: 7px;
+        }
+
+        .capability p {
+            color: var(--muted);
+
+            font-size: 13px;
+        }
+
+
+        /* =========================
+           ABOUT
+        ========================= */
+
+        .about-grid {
+            display: grid;
+
+            grid-template-columns: 1.3fr 0.7fr;
+
+            gap: 70px;
+
+            align-items: start;
+        }
+
+        .about-text p {
+            color: var(--muted);
+
+            font-size: 16px;
+
+            margin-bottom: 18px;
+        }
+
+        .about-side {
+            padding: 28px;
+
+            background: var(--accent-light);
+
+            border: 1px solid var(--accent-border);
+
+            border-radius: 10px;
+        }
+
+        .about-side h3 {
+            font-size: 15px;
+
+            margin-bottom: 14px;
+        }
+
+        .about-side ul {
+            padding-left: 18px;
+
+            color: var(--muted);
+
+            font-size: 13px;
+        }
+
+        .about-side li {
+            margin-bottom: 7px;
+        }
+
+
+        /* =========================
+           CONTACT
+        ========================= */
+
+        .contact {
+            background: #fafaff;
+        }
+
+        .contact-content {
+            max-width: 750px;
+        }
+
+        .contact-content p {
+            color: var(--muted);
+
+            font-size: 16px;
+
+            margin-bottom: 25px;
+        }
+
+        .contact-links {
+            display: flex;
+
+            flex-wrap: wrap;
+
+            gap: 12px;
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================= */
 
         footer {
-            border-top: 1px solid #eeeeee;
-            padding: 55px 0;
+            padding: 35px 0;
+
+            border-top: 1px solid var(--border);
         }
 
-        .footer-title {
-            font-size: 28px;
-            font-weight: 700;
-            letter-spacing: -0.5px;
-            margin-bottom: 20px;
-        }
-
-        .footer-links {
+        .footer-content {
             display: flex;
-            gap: 25px;
-            font-size: 14px;
-            color: #666666;
+
+            justify-content: space-between;
+
+            align-items: center;
         }
 
-        .footer-links a:hover {
-            color: #111111;
+        .footer-name {
+            font-size: 13px;
+
+            font-weight: 650;
         }
 
-        .copyright {
-            margin-top: 35px;
-            font-size: 12px;
+        .footer-text {
             color: #999999;
+
+            font-size: 12px;
         }
 
-        /* MOBILE */
 
-        @media (max-width: 750px) {
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 760px) {
 
             .container {
                 width: 88%;
             }
 
-            .nav-links {
-                gap: 15px;
-            }
-
-            .hero {
-                padding: 75px 0 70px;
-            }
-
-            .hero h1 {
-                letter-spacing: -2px;
-            }
-
-            .hero-text {
-                font-size: 18px;
-            }
-
-            .impact-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .thinking-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .case-study-card {
-                padding: 28px;
-            }
-
-            .case-study-card h3 {
-                font-size: 25px;
-            }
-
-            section {
-                padding: 65px 0;
-            }
-        }
-
-        @media (max-width: 500px) {
-
             nav {
                 height: auto;
+
                 padding: 20px 0;
-                align-items: flex-start;
-                gap: 15px;
+
                 flex-direction: column;
+
+                align-items: flex-start;
+
+                gap: 14px;
             }
 
             .nav-links {
+                gap: 16px;
+
+                flex-wrap: wrap;
+
                 font-size: 13px;
             }
 
-            .impact-grid {
+            .hero {
+                padding: 70px 0 60px;
+            }
+
+            .hero h1 {
+                letter-spacing: -2.5px;
+            }
+
+            .hero-description {
+                font-size: 18px;
+            }
+
+            .proof-grid,
+            .case-grid,
+            .capability-grid,
+            .about-grid {
                 grid-template-columns: 1fr;
             }
 
-            .footer-links {
-                flex-direction: column;
-                gap: 10px;
+            .experience-item {
+                grid-template-columns: 1fr;
+
+                gap: 8px;
             }
+
+            section {
+                padding: 60px 0;
+            }
+
+            .footer-content {
+                flex-direction: column;
+
+                align-items: flex-start;
+
+                gap: 8px;
+            }
+
         }
 
     </style>
+
 </head>
 
 
 <body>
 
-    <!-- NAVIGATION -->
 
-    <nav class="container">
+<!-- =========================
+     NAVIGATION
+========================= -->
 
-        <div class="logo">
-            Manisha Byakodi
+<nav class="container">
+
+    <div class="logo">
+        Manisha Byakodi
+    </div>
+
+    <div class="nav-links">
+
+        <a href="#work">
+            Work
+        </a>
+
+        <a href="#experience">
+            Experience
+        </a>
+
+        <a href="#capabilities">
+            Capabilities
+        </a>
+
+        <a href="#about">
+            About
+        </a>
+
+        <a href="#contact">
+            Contact
+        </a>
+
+    </div>
+
+</nav>
+
+
+<main>
+
+
+<!-- =========================
+     HERO
+========================= -->
+
+<div class="container">
+
+    <div class="hero">
+
+        <div class="eyebrow">
+            Product Manager · AI · B2B SaaS · Enterprise
         </div>
 
-        <div class="nav-links">
-            <a href="#work">Work</a>
-            <a href="#thinking">How I Think</a>
-            <a href="#about">About</a>
-            <a href="Manisha-Byakodi-Product-Manager-Resume.pdf"
+        <h1>
+            Building products that
+            <span>solve real problems.</span>
+        </h1>
+
+        <p class="hero-description">
+            Product Manager with experience across AI, enterprise SaaS
+            and CRM products. I work across discovery, product strategy,
+            0→1 launches, UX, execution and go-to-market.
+        </p>
+
+        <div class="hero-buttons">
+
+            <a class="button button-primary"
+               href="Manisha-Byakodi-Product-Manager-Resume.pdf"
                target="_blank">
-                Resume
+
+                View Resume
+
             </a>
 
-            <a href="https://www.linkedin.com/in/manishabyakodi"
+            <a class="button button-secondary"
+               href="http://www.linkedin.com/in/manishabyakodi"
                target="_blank">
-                LinkedIn
+
+                LinkedIn →
+
             </a>
+
+            <a class="button button-secondary"
+               href="#work">
+
+                View Case Studies ↓
+
+            </a>
+
         </div>
 
-    </nav>
+    </div>
 
 
-    <!-- HERO -->
+    <!-- =========================
+         PROOF
+    ========================= -->
 
-    <main>
+    <div class="proof">
 
-        <div class="container">
+        <div class="proof-grid">
 
-            <div class="hero">
+            <div class="proof-card">
 
-                <div class="eyebrow">
-                    Product Manager
+                <div class="proof-number">
+                    0→1
                 </div>
 
-                <h1>
-                    Building AI & B2B SaaS products
-                    <span>that solve real customer problems.</span>
-                </h1>
+                <div class="proof-title">
+                    Enterprise Product
+                </div>
 
-                <p class="hero-text">
-                    Product Manager with experience across 0→1 product development,
-                    enterprise SaaS, CRM workflows, customer adoption, and
-                    AI-powered product experiences.
-                </p>
-
-                <div class="buttons">
-
-                    <a href="#work" class="button button-primary">
-                        View My Work
-                    </a>
-
-                    <a href="Manisha-Byakodi-Product-Manager-Resume.pdf"
-                       class="button button-secondary"
-                       target="_blank">
-                        Download Resume
-                    </a>
-
+                <div class="proof-description">
+                    Took an AI product from ideation through launch.
                 </div>
 
             </div>
 
 
-            <!-- IMPACT -->
+            <div class="proof-card">
 
-            <section>
-
-                <div class="section-label">
-                    Selected Impact
+                <div class="proof-number">
+                    90%
                 </div>
 
-                <h2 class="section-title">
-                    Products, adoption & outcomes
-                </h2>
-
-                <div class="impact-grid">
-
-                    <div class="impact-card">
-
-                        <div class="impact-number">
-                            0→1
-                        </div>
-
-                        <div class="impact-title">
-                            Enterprise Product
-                        </div>
-
-                        <div class="impact-description">
-                            Launched a new enterprise product from concept to market.
-                        </div>
-
-                    </div>
-
-
-                    <div class="impact-card">
-
-                        <div class="impact-number">
-                            10+
-                        </div>
-
-                        <div class="impact-title">
-                            Enterprise Clients
-                        </div>
-
-                        <div class="impact-description">
-                            Acquired within the first 6 months of launch.
-                        </div>
-
-                    </div>
-
-
-                    <div class="impact-card">
-
-                        <div class="impact-number">
-                            ~90%
-                        </div>
-
-                        <div class="impact-title">
-                            New-Customer Adoption
-                        </div>
-
-                        <div class="impact-description">
-                            Adoption of the Pre-Chat Questionnaire among new customers.
-                        </div>
-
-                    </div>
-
-
-                    <div class="impact-card">
-
-                        <div class="impact-number">
-                            ~25%
-                        </div>
-
-                        <div class="impact-title">
-                            Active Usage Growth
-                        </div>
-
-                        <div class="impact-description">
-                            Growth after scaling adoption across 5+ features.
-                        </div>
-
-                    </div>
-
+                <div class="proof-title">
+                    New-Customer Adoption
                 </div>
 
-            </section>
-
-
-            <!-- WORK -->
-
-            <section id="work">
-
-                <div class="section-label">
-                    Featured Work
+                <div class="proof-description">
+                    Adoption of a customer-led WhatsApp4Dynamics feature.
                 </div>
 
-                <h2 class="section-title">
-                    Selected case study
-                </h2>
+            </div>
 
 
-                <div class="case-study-card">
+            <div class="proof-card">
 
-                    <div class="case-number">
-                        Case Study 01
+                <div class="proof-number">
+                    50%+
+                </div>
+
+                <div class="proof-title">
+                    Existing Customers
+                </div>
+
+                <div class="proof-description">
+                    Existing customers implemented the new feature.
+                </div>
+
+            </div>
+
+
+            <div class="proof-card">
+
+                <div class="proof-number">
+                    7+
+                </div>
+
+                <div class="proof-title">
+                    Cross-functional Team
+                </div>
+
+                <div class="proof-description">
+                    Developers, QA, product and business stakeholders.
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =========================
+     WORK
+========================= -->
+
+<section id="work">
+
+    <div class="container">
+
+        <div class="section-label">
+            Featured Work
+        </div>
+
+        <h2 class="section-title">
+            Product case studies
+        </h2>
+
+        <p class="section-intro">
+            A selection of product work spanning customer discovery,
+            enterprise SaaS, AI product strategy, 0→1 development,
+            execution and launch.
+        </p>
+
+
+        <div class="case-grid">
+
+
+            <!-- CASE STUDY 1 -->
+
+            <div class="case-card">
+
+                <div>
+
+                    <div class="case-label">
+                        Case Study 01 · Customer-led Product
                     </div>
 
                     <h3>
-                        Automating Pre-Chat Information Collection
-                        for WhatsApp4Dynamics
+                        Automating customer information
+                        collection on WhatsApp
                     </h3>
 
-                    <div class="case-meta">
-                        B2B SaaS · Enterprise CRM · Customer Discovery · 0→1 Feature
-                    </div>
-
-                    <p class="case-description">
-                        How a customer request evolved into a configurable
-                        pre-chat questionnaire that automated information
-                        collection and created a more streamlined WhatsApp
-                        experience for customers and agents.
+                    <p>
+                        How I identified the underlying problem behind
+                        a customer request, designed a configurable
+                        pre-chat questionnaire experience and helped
+                        launch a feature that reached approximately
+                        90% adoption among new customers.
                     </p>
 
-                    <div class="case-result">
-                        ~90% new-customer adoption · ~50% existing-customer implementation
-                    </div>
+                    <div class="case-tags">
 
-                    <br>
+                        <span class="case-tag">
+                            Customer Discovery
+                        </span>
 
-                    <a href="case-study-whatsapp4dynamics-pre-chat-questionnaire.html"
-                       class="button button-primary">
-                        View Case Study →
-                    </a>
+                        <span class="case-tag">
+                            B2B SaaS
+                        </span>
 
-                </div>
+                        <span class="case-tag">
+                            CRM
+                        </span>
 
-            </section>
-
-
-            <!-- HOW I THINK -->
-
-            <section id="thinking">
-
-                <div class="section-label">
-                    Product Thinking
-                </div>
-
-                <h2 class="section-title">
-                    How I think about products
-                </h2>
-
-
-                <div class="thinking-grid">
-
-                    <div class="thinking-item">
-
-                        <h3>
-                            🔎 Start with the problem
-                        </h3>
-
-                        <p>
-                            I use customer conversations, research and data
-                            to understand the problem before jumping to a solution.
-                        </p>
-
-                    </div>
-
-
-                    <div class="thinking-item">
-
-                        <h3>
-                            🎯 Prioritize for impact
-                        </h3>
-
-                        <p>
-                            I balance customer value, business impact,
-                            engineering effort and time-to-market.
-                        </p>
-
-                    </div>
-
-
-                    <div class="thinking-item">
-
-                        <h3>
-                            🚀 Ship → Learn → Iterate
-                        </h3>
-
-                        <p>
-                            I prefer focused MVPs that validate the core problem
-                            before investing in unnecessary complexity.
-                        </p>
-
-                    </div>
-
-
-                    <div class="thinking-item">
-
-                        <h3>
-                            🤖 Build responsibly with AI
-                        </h3>
-
-                        <p>
-                            I think about AI through user value, evaluation,
-                            reliability, guardrails and measurable outcomes.
-                        </p>
-
-                    </div>
-
-
-                    <div class="thinking-item">
-
-                        <h3>
-                            📈 Measure adoption
-                        </h3>
-
-                        <p>
-                            A feature isn't successful because it shipped.
-                            I look at whether customers actually use it and
-                            derive meaningful value.
-                        </p>
-
-                    </div>
-
-
-                    <div class="thinking-item">
-
-                        <h3>
-                            🤝 Work cross-functionally
-                        </h3>
-
-                        <p>
-                            I translate customer and business needs into
-                            clear product direction for engineering and stakeholders.
-                        </p>
+                        <span class="case-tag">
+                            90% Adoption
+                        </span>
 
                     </div>
 
                 </div>
 
-            </section>
+
+                <a class="case-link"
+                   href="case-study-whatsapp4dynamics-pre-chat-questionnaire.html">
+
+                    Read Case Study →
+
+                </a>
+
+            </div>
 
 
-            <!-- ABOUT -->
+            <!-- CASE STUDY 2 -->
 
-            <section id="about">
+            <div class="case-card">
 
-                <div class="section-label">
-                    About
-                </div>
+                <div>
 
-                <h2 class="section-title">
-                    A little about me
-                </h2>
+                    <div class="case-label">
+                        Case Study 02 · AI Product · 0→1
+                    </div>
 
-                <div class="about-text">
+                    <h3>
+                        Taking Next Best Action
+                        from idea to market
+                    </h3>
 
                     <p>
-                        My journey into Product Management started with a
-                        foundation in Business Analysis, where I learned to
-                        translate business problems into clear product
-                        requirements and work closely with engineering teams.
+                        How I helped identify an AI opportunity in the
+                        Dynamics 365 ecosystem, shape the product strategy,
+                        define the MVP and UX, lead UAT and support the
+                        April 2026 market launch.
                     </p>
 
-                    <p>
-                        Today, I work as an Associate Product Manager,
-                        building and scaling products across enterprise SaaS,
-                        CRM and customer-facing workflows.
-                    </p>
+                    <div class="case-tags">
 
-                    <p>
-                        My experience spans product discovery, customer research,
-                        UX, roadmap prioritization, 0→1 development,
-                        cross-functional execution and customer adoption.
-                        I am also building deeper expertise in AI Product Management.
-                    </p>
+                        <span class="case-tag">
+                            AI Product
+                        </span>
+
+                        <span class="case-tag">
+                            0→1
+                        </span>
+
+                        <span class="case-tag">
+                            Product Strategy
+                        </span>
+
+                        <span class="case-tag">
+                            Dynamics 365
+                        </span>
+
+                        <span class="case-tag">
+                            GTM
+                        </span>
+
+                    </div>
 
                 </div>
 
-            </section>
+
+                <a class="case-link"
+                   href="case-study-next-best-action-ai.html">
+
+                    Read Case Study →
+
+                </a>
+
+            </div>
+
 
         </div>
 
-    </main>
+    </div>
+
+</section>
 
 
-    <!-- FOOTER -->
+<!-- =========================
+     EXPERIENCE
+========================= -->
 
-    <footer id="contact">
+<section id="experience">
 
-        <div class="container">
+    <div class="container">
 
-            <div class="footer-title">
-                Let's build better products.
+        <div class="section-label">
+            Experience
+        </div>
+
+        <h2 class="section-title">
+            Product & business experience
+        </h2>
+
+        <div class="experience-list">
+
+
+            <div class="experience-item">
+
+                <div class="experience-date">
+                    Aug 2024 — Present
+                </div>
+
+                <div>
+
+                    <div class="experience-role">
+                        Associate Product Manager
+                    </div>
+
+                    <div class="experience-company">
+                        Inogic Technologies
+                    </div>
+
+                    <p class="experience-description">
+                        Product management for Microsoft Dynamics 365
+                        enterprise products, including 0→1 product
+                        launches, AI product development, customer-led
+                        features and cross-functional execution.
+                    </p>
+
+                </div>
+
             </div>
 
-            <div class="footer-links">
 
-                <a href="https://www.linkedin.com/in/manishabyakodi"
-                    target="_blank">
-                    LinkedIn
-                </a>
+            <div class="experience-item">
 
-                <a href="https://github.com/ManishaByakodi" target="_blank">
-                    GitHub
-                </a>
+                <div class="experience-date">
+                    Aug 2021 — Aug 2024
+                </div>
 
-                <a href="manishabyakodi@outlook.com">
-                    Email
-                </a>
+                <div>
+
+                    <div class="experience-role">
+                        Business Analyst
+                    </div>
+
+                    <div class="experience-company">
+                        Softogrid Solutions
+                    </div>
+
+                    <p class="experience-description">
+                        Worked across requirements discovery, BRDs,
+                        FRDs, Agile/Scrum, user stories, workflows and
+                        product delivery across e-commerce and HR
+                        domains.
+                    </p>
+
+                </div>
 
             </div>
 
-            <div class="copyright">
-                © 2026 Manisha Byakodi
+
+            <div class="experience-item">
+
+                <div class="experience-date">
+                    Earlier Experience
+                </div>
+
+                <div>
+
+                    <div class="experience-role">
+                        Product & Technology Experience
+                    </div>
+
+                    <div class="experience-company">
+                        Accenture · FMCG Startup
+                    </div>
+
+                    <p class="experience-description">
+                        Early experience spanning software testing and
+                        product management internship experience.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     CAPABILITIES
+========================= -->
+
+<section id="capabilities">
+
+    <div class="container">
+
+        <div class="section-label">
+            Product Capabilities
+        </div>
+
+        <h2 class="section-title">
+            How I work as a PM
+        </h2>
+
+        <p class="section-intro">
+            My product experience spans the full product lifecycle —
+            from understanding the problem to defining, building,
+            validating and launching the solution.
+        </p>
+
+
+        <div class="capability-grid">
+
+
+            <div class="capability">
+
+                <h3>
+                    Product Discovery
+                </h3>
+
+                <p>
+                    Customer interviews, problem discovery, pain-point
+                    analysis and opportunity identification.
+                </p>
+
+            </div>
+
+
+            <div class="capability">
+
+                <h3>
+                    Product Strategy
+                </h3>
+
+                <p>
+                    Product vision, competitive research, prioritization,
+                    MVP definition and roadmap planning.
+                </p>
+
+            </div>
+
+
+            <div class="capability">
+
+                <h3>
+                    AI Product Management
+                </h3>
+
+                <p>
+                    AI use-case discovery, AI workflows, explainability,
+                    recommendation experiences and AI product strategy.
+                </p>
+
+            </div>
+
+
+            <div class="capability">
+
+                <h3>
+                    Product Definition
+                </h3>
+
+                <p>
+                    PRDs, user stories, acceptance criteria, workflows
+                    and product requirements.
+                </p>
+
+            </div>
+
+
+            <div class="capability">
+
+                <h3>
+                    UX & Prototyping
+                </h3>
+
+                <p>
+                    Figma prototypes, user flows, information architecture
+                    and collaborative UX definition.
+                </p>
+
+            </div>
+
+
+            <div class="capability">
+
+                <h3>
+                    Execution
+                </h3>
+
+                <p>
+                    Cross-functional collaboration, Agile delivery,
+                    UAT, release planning and stakeholder management.
+                </p>
+
+            </div>
+
+
+            <div class="capability">
+
+                <h3>
+                    Enterprise SaaS
+                </h3>
+
+                <p>
+                    Experience building products for CRM and
+                    Microsoft Dynamics 365 environments.
+                </p>
+
+            </div>
+
+
+            <div class="capability">
+
+                <h3>
+                    Product Analytics
+                </h3>
+
+                <p>
+                    Product metrics, adoption analysis, experimentation
+                    and data-informed decision making.
+                </p>
+
+            </div>
+
+
+            <div class="capability">
+
+                <h3>
+                    Go-to-Market
+                </h3>
+
+                <p>
+                    Launch planning, product positioning, campaign
+                    support, webinars and market communication.
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     ABOUT
+========================= -->
+
+<section id="about">
+
+    <div class="container">
+
+        <div class="section-label">
+            About
+        </div>
+
+        <h2 class="section-title">
+            A PM who connects the dots
+        </h2>
+
+
+        <div class="about-grid">
+
+
+            <div class="about-text">
+
+                <p>
+                    My journey into product management started from
+                    business analysis, where I developed a strong
+                    foundation in understanding business problems,
+                    translating requirements and working with
+                    cross-functional teams.
+                </p>
+
+                <p>
+                    I moved into product management to take greater
+                    ownership of the problem-to-product journey —
+                    from identifying opportunities and defining
+                    solutions to validating products and taking them
+                    to market.
+                </p>
+
+                <p>
+                    Today, my experience sits at the intersection of
+                    <strong>AI, enterprise SaaS, CRM and product
+                    strategy</strong>.
+                </p>
+
+            </div>
+
+
+            <div class="about-side">
+
+                <h3>
+                    Currently focused on
+                </h3>
+
+                <ul>
+
+                    <li>
+                        AI Product Management
+                    </li>
+
+                    <li>
+                        B2B SaaS
+                    </li>
+
+                    <li>
+                        Enterprise Products
+                    </li>
+
+                    <li>
+                        CRM & Productivity
+                    </li>
+
+                    <li>
+                        Product Strategy
+                    </li>
+
+                    <li>
+                        0→1 Product Development
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     CONTACT
+========================= -->
+
+<section id="contact" class="contact">
+
+    <div class="container">
+
+        <div class="section-label">
+            Contact
+        </div>
+
+        <h2 class="section-title">
+            Let's connect
+        </h2>
+
+        <div class="contact-content">
+
+            <p>
+                I'm exploring Product Manager opportunities across
+                AI, B2B SaaS, enterprise products, CRM and growth.
+                If you're hiring for a product role where customer
+                problems, strategy and execution come together,
+                I'd be happy to connect.
+            </p>
+
+
+            <div class="contact-links">
+
+                <a class="button button-primary"
+                   href="Manisha-Byakodi-Product-Manager-Resume.pdf"
+                   target="_blank">
+
+                    Resume
+
+                </a>
+
+
+                <a class="button button-secondary"
+                   href="http://www.linkedin.com/in/manishabyakodi"
+                   target="_blank">
+
+                    LinkedIn →
+
+                </a>
+
             </div>
 
         </div>
 
-    </footer>
+    </div>
+
+</section>
+
+
+</main>
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+
+    <div class="container">
+
+        <div class="footer-content">
+
+            <div class="footer-name">
+                Manisha Byakodi
+            </div>
+
+            <div class="footer-text">
+                Product Manager · AI · B2B SaaS · Enterprise
+            </div>
+
+        </div>
+
+    </div>
+
+</footer>
+
 
 </body>
+
 </html>
