@@ -1,0 +1,1122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Ascensia Diabetes Care case study: Enterprise data hygiene and hybrid AI architecture across 9.5 million global CRM records.">
+<meta name="keywords" content="Healthcare AI, AI Strategy, MedTech, Ascensia Diabetes Care, Microsoft Dynamics 365, Dataverse, Azure OpenAI, Data Governance">
+<meta name="author" content="Healthcare AI Strategy Portfolio">
+<meta name="robots" content="index, follow">
+<title>Ascensia Diabetes Care | Enterprise Data Hygiene & Hybrid AI Architecture</title>
+
+<style>
+:root {
+  --navy: #10243a;
+  --navy2: #173b5e;
+  --blue: #1677b8;
+  --cyan: #26b7c9;
+  --pale: #edf5fa;
+  --light: #f5f8fb;
+  --white: #ffffff;
+  --ink: #243447;
+  --muted: #617386;
+  --border: #dce6ee;
+  --green: #16856b;
+  --shadow: 0 12px 35px rgba(16,36,58,.08);
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: Inter, "Segoe UI", Arial, sans-serif;
+  background: var(--light);
+  color: var(--ink);
+  line-height: 1.65;
+}
+
+a { color: var(--blue); }
+
+.container {
+  width: min(1120px, 91%);
+  margin: auto;
+}
+
+.hero {
+  background: linear-gradient(125deg, #10243a 0%, #173b5e 65%, #126d91 100%);
+  color: white;
+  padding: 76px 0 68px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero:after {
+  content: "";
+  position: absolute;
+  width: 420px;
+  height: 420px;
+  border: 1px solid rgba(255,255,255,.12);
+  border-radius: 50%;
+  right: -100px;
+  top: -180px;
+  box-shadow: 0 0 0 45px rgba(255,255,255,.025),
+              0 0 0 90px rgba(255,255,255,.02);
+}
+
+.eyebrow {
+  color: #7de1e7;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.hero h1 {
+  max-width: 850px;
+  font-size: clamp(34px, 5vw, 57px);
+  line-height: 1.1;
+  margin: 20px 0;
+  letter-spacing: -1.5px;
+}
+
+.hero p {
+  max-width: 760px;
+  color: #d7e6f0;
+  font-size: 18px;
+}
+
+.hero-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 28px;
+}
+
+.hero-tags span {
+  border: 1px solid rgba(255,255,255,.25);
+  border-radius: 30px;
+  padding: 7px 13px;
+  font-size: 12px;
+  color: #e9f5fb;
+}
+
+.meta-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin-top: 42px;
+}
+
+.meta {
+  padding: 15px;
+  background: rgba(255,255,255,.09);
+  border: 1px solid rgba(255,255,255,.14);
+  border-radius: 10px;
+}
+
+.meta small {
+  display: block;
+  color: #a9c5d8;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.meta strong {
+  display: block;
+  margin-top: 5px;
+  font-size: 14px;
+}
+
+nav {
+  background: white;
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.nav-inner {
+  display: flex;
+  gap: 23px;
+  overflow-x: auto;
+  padding: 13px 0;
+  white-space: nowrap;
+}
+
+nav a {
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+nav a:hover { color: var(--blue); }
+
+section { padding: 62px 0; }
+
+section.alt { background: white; }
+
+.section-label {
+  color: var(--blue);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 800;
+}
+
+h2 {
+  color: var(--navy);
+  font-size: clamp(25px, 3vw, 35px);
+  line-height: 1.2;
+  margin: 9px 0 16px;
+  letter-spacing: -.6px;
+}
+
+h3 {
+  color: var(--navy);
+  font-size: 17px;
+  margin: 0 0 10px;
+}
+
+.lead {
+  color: var(--muted);
+  font-size: 17px;
+  max-width: 850px;
+}
+
+p { margin-top: 0; }
+
+.summary {
+  background: white;
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--cyan);
+  border-radius: 10px;
+  padding: 25px 28px;
+  box-shadow: var(--shadow);
+  margin-top: 25px;
+}
+
+.summary p:last-child { margin-bottom: 0; }
+
+.metrics {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+  margin-top: 30px;
+}
+
+.metric {
+  background: white;
+  padding: 22px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+}
+
+.metric strong {
+  display: block;
+  color: var(--blue);
+  font-size: 32px;
+  line-height: 1.2;
+  letter-spacing: -1px;
+}
+
+.metric span {
+  color: var(--muted);
+  font-size: 12px;
+  display: block;
+  margin-top: 8px;
+}
+
+.grid-2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+}
+
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 17px;
+}
+
+.card {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 22px;
+  box-shadow: 0 5px 20px rgba(16,36,58,.035);
+}
+
+.card p {
+  color: var(--muted);
+  font-size: 14px;
+  margin-bottom: 0;
+}
+
+.card .number {
+  color: var(--cyan);
+  font-size: 25px;
+  font-weight: 800;
+  margin-bottom: 8px;
+}
+
+.region-card {
+  border-top: 3px solid var(--cyan);
+}
+
+.region-card strong {
+  font-size: 27px;
+  color: var(--navy);
+  display: block;
+}
+
+.region-card span {
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.pill {
+  display: inline-block;
+  background: var(--pale);
+  color: var(--blue);
+  padding: 5px 10px;
+  border-radius: 30px;
+  font-size: 11px;
+  font-weight: 800;
+  margin: 3px 4px 3px 0;
+}
+
+.architecture {
+  background: #10243a;
+  color: white;
+  border-radius: 15px;
+  padding: 30px;
+  margin-top: 25px;
+}
+
+.architecture h3 {
+  color: white;
+  text-align: center;
+  margin-bottom: 22px;
+}
+
+.arch-flow {
+  max-width: 700px;
+  margin: auto;
+}
+
+.arch-box {
+  text-align: center;
+  border: 1px solid rgba(255,255,255,.22);
+  background: rgba(255,255,255,.07);
+  border-radius: 9px;
+  padding: 17px;
+}
+
+.arch-box strong {
+  display: block;
+  color: #80e1e8;
+  font-size: 14px;
+}
+
+.arch-box span {
+  color: #d0dfeb;
+  font-size: 12px;
+}
+
+.arch-arrow {
+  text-align: center;
+  color: #5ed3dd;
+  font-size: 24px;
+  line-height: 1.5;
+}
+
+.arch-note {
+  text-align: center;
+  font-size: 11px;
+  color: #b5ccdc;
+  margin-top: 18px;
+}
+
+.stage {
+  position: relative;
+  padding-left: 58px;
+  margin: 25px 0;
+}
+
+.stage-num {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  color: white;
+  font-weight: 800;
+  background: var(--blue);
+}
+
+.stage p {
+  color: var(--muted);
+  font-size: 14px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  font-size: 13px;
+  margin-top: 22px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+th {
+  background: var(--navy);
+  color: white;
+  text-align: left;
+  padding: 14px;
+}
+
+td {
+  border-bottom: 1px solid var(--border);
+  padding: 14px;
+  vertical-align: top;
+}
+
+tr:last-child td { border-bottom: none; }
+
+td strong { color: var(--navy); }
+
+.confidence {
+  border-top: 3px solid var(--green);
+}
+
+.confidence .score {
+  color: var(--green);
+  font-size: 24px;
+  font-weight: 800;
+}
+
+.callout {
+  background: #eaf6f8;
+  border: 1px solid #c9e8eb;
+  border-radius: 10px;
+  padding: 20px 23px;
+  margin-top: 24px;
+}
+
+.callout strong { color: #126b7c; }
+
+.kpi-table td:nth-child(2),
+.kpi-table td:nth-child(3) {
+  font-weight: 800;
+}
+
+.after {
+  color: var(--green);
+}
+
+.competency {
+  background: var(--navy);
+  color: white;
+  border-radius: 12px;
+  padding: 23px;
+}
+
+.competency h3 { color: white; }
+
+.competency p {
+  color: #c5d7e5;
+  font-size: 13px;
+  margin: 0;
+}
+
+.competency .index {
+  color: #69d5df;
+  font-size: 24px;
+  font-weight: 800;
+  margin-bottom: 10px;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 18px;
+}
+
+.tags span {
+  padding: 7px 11px;
+  border-radius: 5px;
+  background: #e9f2f8;
+  color: #24516e;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.disclaimer {
+  font-size: 11px;
+  color: var(--muted);
+  background: #f0f4f7;
+  border-radius: 8px;
+  padding: 17px;
+  margin-top: 25px;
+}
+
+footer {
+  background: #0c1d30;
+  color: #c4d4e1;
+  padding: 30px 0;
+  font-size: 12px;
+}
+
+footer strong { color: white; }
+
+@media(max-width:800px) {
+  .meta-grid, .metrics { grid-template-columns: repeat(2,1fr); }
+  .grid-3 { grid-template-columns: repeat(2,1fr); }
+  .grid-2 { grid-template-columns: 1fr; }
+  section { padding: 45px 0; }
+}
+
+@media(max-width:520px) {
+  .hero { padding: 55px 0 45px; }
+  .meta-grid, .metrics, .grid-3 { grid-template-columns: 1fr 1fr; }
+  .metric { padding: 16px; }
+  .metric strong { font-size: 25px; }
+  .architecture { padding: 18px; }
+  .nav-inner { gap: 16px; }
+  table { font-size: 11px; }
+  th, td { padding: 9px; }
+}
+
+@media print {
+  nav { display: none; }
+  body { background: white; }
+  section { padding: 30px 0; break-inside: avoid; }
+  .card, .metric { box-shadow: none; }
+  .hero { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+}
+</style>
+</head>
+
+<body>
+
+<header class="hero">
+  <div class="container">
+    <div class="eyebrow">Healthcare AI Strategy · MedTech · Enterprise Transformation</div>
+
+    <h1>Building an AI-Ready Data Foundation for Global Diabetes Care</h1>
+
+    <p>
+      Enterprise Data Hygiene & Hybrid AI Architecture across 9.5 million
+      CRM records at Ascensia Diabetes Care.
+    </p>
+
+    <div class="hero-tags">
+      <span>AI Strategy</span>
+      <span>Healthcare Data Governance</span>
+      <span>Azure OpenAI</span>
+      <span>Microsoft Dynamics 365</span>
+      <span>Enterprise AI Architecture</span>
+    </div>
+
+    <div class="meta-grid">
+      <div class="meta">
+        <small>Organization</small>
+        <strong>Ascensia Diabetes Care</strong>
+      </div>
+      <div class="meta">
+        <small>Role</small>
+        <strong>Lead AI Strategist</strong>
+      </div>
+      <div class="meta">
+        <small>Platform</small>
+        <strong>Dynamics 365 / Dataverse</strong>
+      </div>
+      <div class="meta">
+        <small>Solution</small>
+        <strong>DeDupeD</strong>
+      </div>
+    </div>
+  </div>
+</header>
+
+<nav>
+  <div class="container nav-inner">
+    <a href="#overview">OVERVIEW</a>
+    <a href="#context">CONTEXT</a>
+    <a href="#challenge">CHALLENGE</a>
+    <a href="#architecture">ARCHITECTURE</a>
+    <a href="#strategy">STRATEGY</a>
+    <a href="#impact">IMPACT</a>
+    <a href="#role">MY ROLE</a>
+  </div>
+</nav>
+
+<main>
+
+<section id="overview">
+  <div class="container">
+    <div class="section-label">01 · Executive Summary</div>
+    <h2>Turning fragmented CRM data into an enterprise AI foundation</h2>
+
+    <p class="lead">
+      A global MedTech data transformation initiative designed to improve
+      patient data consistency, operational efficiency, and the reliability
+      of downstream AI applications.
+    </p>
+
+    <div class="summary">
+      <p>
+        Ascensia Diabetes Care operated three global CRM tenants containing
+        <strong>9.5 million records</strong> across Europe, the USA, and
+        APAC/LATAM. As the organization expanded from blood glucose monitoring
+        to continuous glucose monitoring, fragmented patient, clinic, and
+        pharmacy records created operational inefficiencies and weakened the
+        quality of enterprise data.
+      </p>
+      <p>
+        As <strong>Lead AI Strategist</strong>, I architected the rollout of
+        <strong>DeDupeD</strong> across six environments using a hybrid
+        architecture: deterministic algorithms for duplicate detection,
+        Azure OpenAI for post-detection record resolution, and a native
+        rollback engine for recovery and auditability.
+      </p>
+      <p>
+        The reported outcome was the cleansing of more than 1.2 million
+        duplicate records, a reduction in duplication from 14.2% to below
+        0.8%, and an increase in Microsoft Copilot response accuracy from
+        62% to 94%.
+      </p>
+    </div>
+
+    <div class="metrics">
+      <div class="metric">
+        <strong>9.5M</strong>
+        <span>CRM records across three global tenants</span>
+      </div>
+      <div class="metric">
+        <strong>1.2M+</strong>
+        <span>Duplicate records cleansed</span>
+      </div>
+      <div class="metric">
+        <strong>94%</strong>
+        <span>Reported Copilot response accuracy</span>
+      </div>
+      <div class="metric">
+        <strong>91%</strong>
+        <span>Reduction in data hygiene administrative costs</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="alt" id="context">
+  <div class="container">
+    <div class="section-label">02 · Operating Landscape</div>
+    <h2>A multi-region healthcare data ecosystem</h2>
+    <p class="lead">
+      The CRM landscape spanned three regional tenants and six environments,
+      with data entering through multiple patient and business touchpoints.
+    </p>
+
+    <div class="grid-3" style="margin-top:25px">
+      <div class="card region-card">
+        <h3>Europe</h3>
+        <strong>5.0M</strong>
+        <span>Records</span>
+        <p>One sandbox and one production environment.</p>
+      </div>
+      <div class="card region-card">
+        <h3>United States</h3>
+        <strong>2.0M</strong>
+        <span>Records</span>
+        <p>One sandbox and one production environment.</p>
+      </div>
+      <div class="card region-card">
+        <h3>APAC / LATAM</h3>
+        <strong>2.5M</strong>
+        <span>Records</span>
+        <p>One sandbox and one production environment.</p>
+      </div>
+    </div>
+
+    <div class="callout">
+      <strong>Platform landscape:</strong>
+      Microsoft Dynamics 365 and Dataverse, with patient support,
+      specialty pharmacy synchronization, website portals, and digital
+      health application data contributing to the CRM ecosystem.
+    </div>
+
+    <p style="margin-top:22px">
+      The business context included Ascensia's CONTOUR® blood glucose
+      monitoring portfolio and its expansion into Eversense® 365 continuous
+      glucose monitoring.
+    </p>
+  </div>
+</section>
+
+<section id="challenge">
+  <div class="container">
+    <div class="section-label">03 · Strategic Challenge</div>
+    <h2>Duplicate records were creating more than a data quality problem</h2>
+    <p class="lead">
+      Standard exact-match deduplication was insufficient for complex,
+      multi-channel patient and business records.
+    </p>
+
+    <div class="grid-2" style="margin-top:25px">
+      <div class="card">
+        <div class="number">01</div>
+        <h3>Fragmented patient journeys</h3>
+        <p>
+          A single patient could exist across multiple records. Support
+          agents lacked a unified interaction history, resulting in repeated
+          troubleshooting and delayed CGM replacement workflows.
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="number">02</div>
+        <h3>Unreliable predictive analytics</h3>
+        <p>
+          Split transaction histories affected the quality of patient churn
+          prediction and sensor refill cadence analysis.
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="number">03</div>
+        <h3>Inconsistent AI context</h3>
+        <p>
+          Duplicate and conflicting records affected Microsoft Copilot
+          responses, creating inconsistent answers for sales and customer
+          service workflows.
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="number">04</div>
+        <h3>Unviable full-scale AI detection</h3>
+        <p>
+          Applying vector embeddings or semantic AI search across 9.5 million
+          records in three international instances was considered financially
+          and computationally unviable.
+        </p>
+      </div>
+    </div>
+
+    <div class="callout">
+      <strong>Baseline data duplication rate: 14.2%.</strong>
+      The strategic challenge was to improve data quality at enterprise
+      scale without introducing unnecessary AI compute costs or increasing
+      the risk of healthcare data corruption.
+    </div>
+  </div>
+</section>
+
+<section class="alt" id="architecture">
+  <div class="container">
+    <div class="section-label">04 · Solution Architecture</div>
+    <h2>DeDupeD: A hybrid AI and algorithmic framework</h2>
+    <p class="lead">
+      The architecture followed one governing principle:
+      <strong>Deterministic rules for matching. Generative AI for resolution.</strong>
+    </p>
+
+    <div class="architecture">
+      <h3>Hybrid AI Architecture · DeDupeD</h3>
+
+      <div class="arch-flow">
+        <div class="arch-box">
+          <strong>DATA INGESTION & ENTRY SOURCES</strong>
+          <span>Patient support · Specialty pharmacies · App syncs · Web forms</span>
+        </div>
+
+        <div class="arch-arrow">↓</div>
+
+        <div class="arch-box">
+          <strong>STAGE 1 · RULE-BASED MATCH ENGINE</strong>
+          <span>Exact identifiers · Double Metaphone · Jaro-Winkler</span>
+        </div>
+
+        <div class="arch-arrow">↓</div>
+
+        <div class="arch-box">
+          <strong>STAGE 2 · InoWiz AZURE OPENAI MERGE ENGINE</strong>
+          <span>Field-level reasoning · Temporal precedence · Confidence scoring</span>
+        </div>
+
+        <div class="arch-arrow">↓</div>
+
+        <div class="arch-box">
+          <strong>STAGE 3 · SAFETY GUARDRAIL & AUDIT</strong>
+          <span>Native rollback engine · JSON snapshots · Restoration</span>
+        </div>
+
+        <div class="arch-arrow">↓</div>
+
+        <div class="arch-box">
+          <strong>UNIFIED MASTER RECORD</strong>
+          <span>Improved data foundation for Copilot and predictive analytics</span>
+        </div>
+      </div>
+
+      <div class="arch-note">
+        Conceptual representation of the architecture described in the case brief.
+      </div>
+    </div>
+
+    <div style="margin-top:35px">
+      <div class="stage">
+        <div class="stage-num">1</div>
+        <h3>Rule-based duplicate detection</h3>
+        <p>
+          The detection engine used exact matching for phone numbers,
+          national or patient identifiers, and email addresses. Fuzzy
+          name matching used Double Metaphone and Jaro-Winkler algorithms.
+          The source brief reports that this approach identified approximately
+          95% of duplicates at minimal compute cost.
+        </p>
+        <span class="pill">Exact matching</span>
+        <span class="pill">Double Metaphone</span>
+        <span class="pill">Jaro-Winkler</span>
+        <span class="pill">Deterministic logic</span>
+      </div>
+
+      <div class="stage">
+        <div class="stage-num">2</div>
+        <h3>AI-powered master selection and field-level merging</h3>
+        <p>
+          Once duplicate clusters were identified, the InoWiz Azure OpenAI
+          Merge Engine evaluated conflicting attributes. It used temporal
+          precedence logic to select appropriate master record values and
+          generated confidence scores with plain-language reasoning.
+        </p>
+        <p>
+          Example reasoning: selecting an address because it matches the
+          most recent pharmacy sensor shipment record.
+        </p>
+        <span class="pill">Azure OpenAI</span>
+        <span class="pill">Field-level reasoning</span>
+        <span class="pill">Confidence scoring</span>
+        <span class="pill">Temporal precedence</span>
+      </div>
+
+      <div class="stage">
+        <div class="stage-num">3</div>
+        <h3>Native rollback and audit safeguards</h3>
+        <p>
+          Before merge execution, the rollback engine captured JSON snapshots
+          of child entities, activity histories, and field values. This
+          supported restoration if a merge was disputed and reduced the risk
+          of irreversible record changes.
+        </p>
+        <span class="pill">JSON snapshots</span>
+        <span class="pill">Auditability</span>
+        <span class="pill">Recovery workflow</span>
+        <span class="pill">Non-destructive operations</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="strategy">
+  <div class="container">
+    <div class="section-label">05 · Strategic Decision Making</div>
+    <h2>Why a hybrid AI strategy was the right architecture</h2>
+    <p class="lead">
+      The solution deliberately avoided applying generative AI to every
+      stage of the workflow. It allocated AI to the decisions where
+      contextual reasoning added value.
+    </p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Strategic focus</th>
+          <th>Alternative considered</th>
+          <th>Selected approach</th>
+          <th>Decision rationale</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Detection methodology</strong></td>
+          <td>Full AI / semantic vector search</td>
+          <td>100% rule-based exact and fuzzy matching</td>
+          <td>Controlled compute and token costs across 9.5M records.</td>
+        </tr>
+        <tr>
+          <td><strong>Architecture boundaries</strong></td>
+          <td>External Python / AWS LLM pipeline</td>
+          <td>Native Dataverse + Azure OpenAI</td>
+          <td>Designed to keep processing within the stated Microsoft BAA boundary.</td>
+        </tr>
+        <tr>
+          <td><strong>Automation vs. control</strong></td>
+          <td>Unrestricted background bulk merging</td>
+          <td>Tiered confidence and human-in-the-loop</td>
+          <td>Prioritized precision and review controls over raw automation speed.</td>
+        </tr>
+        <tr>
+          <td><strong>System intake</strong></td>
+          <td>Real-time hard blocking</td>
+          <td>Soft warnings and off-peak batch cleansing</td>
+          <td>Balanced data quality with support workflow continuity.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3 style="margin-top:35px">Confidence-based decision framework</h3>
+
+    <div class="grid-3" style="margin-top:18px">
+      <div class="card confidence">
+        <div class="score">&gt;95%</div>
+        <h3>Automatic merge</h3>
+        <p>
+          High-confidence matches qualify for automated merge execution.
+        </p>
+      </div>
+
+      <div class="card confidence">
+        <div class="score">80–94%</div>
+        <h3>One-click recommendation</h3>
+        <p>
+          Agents receive a recommendation card to review and approve.
+        </p>
+      </div>
+
+      <div class="card confidence">
+        <div class="score">&lt;80%</div>
+        <h3>Manual review</h3>
+        <p>
+          Lower-confidence cases are flagged for human assessment.
+        </p>
+      </div>
+    </div>
+
+    <div class="callout">
+      <strong>Strategic principle:</strong>
+      AI should be applied where it provides differentiated reasoning value.
+      Deterministic algorithms remain preferable for high-volume,
+      well-defined matching tasks.
+    </div>
+  </div>
+</section>
+
+<section class="alt" id="impact">
+  <div class="container">
+    <div class="section-label">06 · Business Impact</div>
+    <h2>Reported operational and enterprise AI outcomes</h2>
+    <p class="lead">
+      The case brief reports measurable improvements in data quality,
+      support efficiency, Copilot accuracy, and administrative cost.
+    </p>
+
+    <table class="kpi-table">
+      <thead>
+        <tr>
+          <th>Business metric</th>
+          <th>Before</th>
+          <th>After</th>
+          <th>Business value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>CRM duplication rate</td>
+          <td>14.2%</td>
+          <td class="after">&lt;0.8%</td>
+          <td>Improved enterprise data consistency.</td>
+        </tr>
+        <tr>
+          <td>Support resolution time</td>
+          <td>18.5 mins</td>
+          <td class="after">11.2 mins</td>
+          <td>Reduced agent search time across fragmented profiles.</td>
+        </tr>
+        <tr>
+          <td>Copilot response accuracy</td>
+          <td>62%</td>
+          <td class="after">94%</td>
+          <td>More consistent context for AI-assisted workflows.</td>
+        </tr>
+        <tr>
+          <td>Sensor reorder retention</td>
+          <td>Baseline</td>
+          <td class="after">+11.4%</td>
+          <td>Unified patient timelines supported reorder nudges.</td>
+        </tr>
+        <tr>
+          <td>Manual data hygiene cost</td>
+          <td>$220,000/year</td>
+          <td class="after">$18,000/year</td>
+          <td>More than 91% reduction in reported administrative cost.</td>
+        </tr>
+        <tr>
+          <td>Data recovery overhead</td>
+          <td>Irreversible merges</td>
+          <td class="after">Zero permanent data loss</td>
+          <td>Rollback capability supported recovery and auditability.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="metrics">
+      <div class="metric">
+        <strong>−13.4pp</strong>
+        <span>Reported reduction in CRM duplication rate</span>
+      </div>
+      <div class="metric">
+        <strong>−7.3 min</strong>
+        <span>Reported support resolution time improvement</span>
+      </div>
+      <div class="metric">
+        <strong>+32pp</strong>
+        <span>Reported improvement in Copilot accuracy</span>
+      </div>
+      <div class="metric">
+        <strong>−91%</strong>
+        <span>Reported data hygiene cost reduction</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="role">
+  <div class="container">
+    <div class="section-label">07 · Leadership & Ownership</div>
+    <h2>My strategic contribution as Lead AI Strategist</h2>
+    <p class="lead">
+      The work demonstrates the intersection of healthcare domain awareness,
+      enterprise architecture, AI resource allocation, and risk-first
+      product strategy.
+    </p>
+
+    <div class="grid-2" style="margin-top:25px">
+      <div class="competency">
+        <div class="index">01</div>
+        <h3>Pragmatic AI resource allocation</h3>
+        <p>
+          Defined where deterministic algorithms were sufficient and where
+          generative AI could provide meaningful field-level reasoning.
+          Balanced enterprise scale, compute costs, and decision quality.
+        </p>
+      </div>
+
+      <div class="competency">
+        <div class="index">02</div>
+        <h3>Healthcare data governance</h3>
+        <p>
+          Prioritized privacy-aware architecture boundaries, data
+          minimization, recovery controls, and governance considerations
+          for sensitive healthcare information.
+        </p>
+      </div>
+
+      <div class="competency">
+        <div class="index">03</div>
+        <h3>Multi-region deployment strategy</h3>
+        <p>
+          Planned a consistent framework across six environments:
+          three sandbox and three production instances spanning
+          Europe, USA, and APAC/LATAM.
+        </p>
+      </div>
+
+      <div class="competency">
+        <div class="index">04</div>
+        <h3>Risk-first AI governance</h3>
+        <p>
+          Incorporated confidence thresholds, human review, audit
+          snapshots, and rollback capabilities to reduce the risk
+          of silent data corruption.
+        </p>
+      </div>
+    </div>
+
+    <h3 style="margin-top:35px">Core capabilities demonstrated</h3>
+    <div class="tags">
+      <span>Healthcare AI Strategy</span>
+      <span>AI Product Strategy</span>
+      <span>Hybrid AI Architecture</span>
+      <span>Azure OpenAI</span>
+      <span>Microsoft Dataverse</span>
+      <span>Dynamics 365</span>
+      <span>Data Quality</span>
+      <span>Data Governance</span>
+      <span>AI Risk Management</span>
+      <span>Human-in-the-Loop</span>
+      <span>Enterprise AI</span>
+      <span>MedTech</span>
+      <span>Multi-Tenant Architecture</span>
+      <span>Healthcare Operations</span>
+      <span>AI ROI</span>
+    </div>
+  </div>
+</section>
+
+<section class="alt">
+  <div class="container">
+    <div class="section-label">08 · Strategic Takeaway</div>
+    <h2>Making enterprise healthcare data ready for responsible AI</h2>
+
+    <p class="lead">
+      The central strategic insight was that enterprise AI performance
+      depends on the quality and consistency of the data foundation beneath it.
+    </p>
+
+    <div class="summary">
+      <p>
+        This case demonstrates a practical approach to healthcare AI
+        transformation: use deterministic methods for scalable and
+        explainable matching, apply generative AI selectively for
+        complex resolution decisions, and embed recovery and human
+        oversight into the architecture.
+      </p>
+      <p>
+        By treating data hygiene as an enabler of enterprise AI rather
+        than simply a CRM maintenance task, the initiative established
+        a stronger foundation for AI-assisted customer service,
+        predictive analytics, and patient engagement.
+      </p>
+    </div>
+
+    <div class="disclaimer">
+      <strong>Portfolio publication note:</strong>
+      The business metrics, architecture details, and implementation
+      outcomes on this page are reproduced from the supplied case study
+      brief and have not been independently audited or verified here.
+      Confirm that you have permission to identify the organization and
+      disclose its operational details before publishing. Do not present
+      HIPAA/GDPR compliance as independently certified solely on the
+      basis of this case description; confirm the applicable controls,
+      agreements, and legal review with the organization.
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <strong>Healthcare AI Strategy Portfolio</strong>
+    <p>
+      Enterprise Data Hygiene & Hybrid AI Architecture ·
+      Ascensia Diabetes Care case study
+    </p>
+    <p>Designed as a responsive, recruiter-friendly portfolio case study.</p>
+  </div>
+</footer>
+
+</body>
+</html>
