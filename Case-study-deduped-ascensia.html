@@ -44,6 +44,42 @@ a { color: var(--blue); }
   margin: auto;
 }
 
+
+        /* =========================
+           NAVIGATION
+        ========================= */
+
+        nav {
+            height: 76px;
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            border-bottom: 1px solid var(--border);
+        }
+
+        .logo {
+            font-size: 18px;
+
+            font-weight: 750;
+        }
+
+        .back-link {
+            font-size: 13px;
+
+            color: var(--muted);
+        }
+
+        .back-link:hover {
+            color: var(--accent);
+        }
+
+
+
+  
 .hero {
   background: linear-gradient(125deg, #10243a 0%, #173b5e 65%, #126d91 100%);
   color: white;
@@ -507,6 +543,25 @@ footer strong { color: white; }
 </style>
 </head>
 
+
+<!-- =========================
+     NAVIGATION
+========================= -->
+
+<nav class="container">
+
+    <div class="logo">
+        Manisha Byakodi
+    </div>
+
+    <a class="back-link" href="index.html">
+        ← Back to Portfolio
+    </a>
+
+</nav>
+
+
+  
 <body>
 
 <header class="hero">
